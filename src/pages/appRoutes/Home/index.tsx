@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, View } from 'react-native';
+import { Alert, ScrollView, View } from 'react-native';
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { IUser } from '../../../store/reducers/user';
 import BottomBanner from './components/BottomBanner';
@@ -44,6 +44,7 @@ const Home: React.FC = () => {
     
     <>
     <StatusBar/>
+    <ScrollView>
     <Container>
     <Header name={user.data.email} isBlur={blur} setBlur={()=>setBlur(!blur)}/>
 
@@ -69,9 +70,9 @@ const Home: React.FC = () => {
       bottomBannerData={DATA} />
      
     </Box>
-   
 
     </Container>
+    </ScrollView>
     </>
   
   );
