@@ -6,8 +6,9 @@ const nuTheme: DefaultTheme = {
   colors: {
       primary: '#8D00DA',
       primaryPastel: '#9B3BDA',
-      gray: '#F0F1F5',
-      white: '#FFFFFF'
+      box: '#F0F1F5',
+      text: '#FFFFFF',
+      textNegative: '#000000'
 
   },
   fonts: {

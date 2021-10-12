@@ -9,8 +9,9 @@ declare module 'styled-components' {
 
       primary: string;
       primaryPastel: string;
-      gray: string;
-      white: string;
+      box: string;
+      text: string;
+      textNegative: string;
 
     };
 
