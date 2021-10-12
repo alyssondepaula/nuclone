@@ -13,7 +13,7 @@ export const Container = styled.View`
 `;
 
 export const Box = styled.View`
-   margin-top: ${RFValue(4)}px;
+   margin-top: ${RFValue(2)}px;
    background-color: ${({theme})=> theme.colors.white};
    padding: ${RFValue(16)}px ${RFValue(18)}px;
 `;

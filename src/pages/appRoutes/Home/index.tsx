@@ -3,6 +3,7 @@ import { Alert, ScrollView, View } from 'react-native';
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { IUser } from '../../../store/reducers/user';
 import BottomBanner from './components/BottomBanner';
+import CardBanner from './components/CardBanner';
 import Header from './components/Header';
 import PromoteBanner from './components/PromoteBanner';
 
@@ -47,6 +48,13 @@ const Home: React.FC = () => {
     <ScrollView>
     <Container>
     <Header name={user.data.email} isBlur={blur} setBlur={()=>setBlur(!blur)}/>
+
+    <Box>
+      <CardBanner
+      iconName={'credit-card-outline'}
+      heading={'Cartão Bloqueado'} 
+      subHeading={'Limite disponivel de R$ 1000,00'}/>
+    </Box>
 
     <Box>
       <PromoteBanner 
