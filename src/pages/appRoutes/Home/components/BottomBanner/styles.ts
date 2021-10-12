@@ -16,19 +16,20 @@ export const HorizontalView = styled.View`
 
 export const Heading = styled.Text`
   color: #000000;
+  font-family:  ${({theme})=> theme.fonts.medium};
   font-size: ${RFValue(16)}px;
 
-  font-weight: bold;
 `;
 
 export const SubHeading = styled.Text`
   color: #000000;
+  font-family:  ${({theme})=> theme.fonts.regular};
   font-size: ${RFValue(12)}px;
-  font-weight: 100;
 `;
 
 export const Text = styled.Text`
   color: #FFFFFF;
+  font-family:  ${({theme})=> theme.fonts.bold};
   font-size: ${RFValue(11)}px;
   font-weight: bold;
 `;

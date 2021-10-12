@@ -41,5 +41,6 @@ export const Avatar = styled.Image.attrs(props=>({
 
 export const Text = styled.Text`
   color: #ffff;
+  font-family:  ${({theme})=> theme.fonts.regular};
   font-size: ${RFValue(16)}px;
 `;
