@@ -48,7 +48,7 @@ const CategoriesData: IBoxCategories[] = [
 
   {
     IconName: 'bank-transfer-in',
-    IconText: 'Pix',
+    IconText: 'Área Pix',
   },
   {
     IconName: 'barcode',

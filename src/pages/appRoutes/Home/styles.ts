@@ -9,12 +9,12 @@ export const StatusBar = styled.StatusBar.attrs(props=>({
 
 export const Container = styled.View`
    flex: 1;
-   background-color: ${({theme})=> theme.colors.gray};
+   background-color: ${({theme})=> theme.colors.box};
 `;
 
 export const Box = styled.View`
    margin-top: ${RFValue(2)}px;
-   background-color: ${({theme})=> theme.colors.white};
+   background-color: ${({theme})=> theme.colors.text};
    padding: ${RFValue(16)}px ${RFValue(18)}px;
 `;
 
