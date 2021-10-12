@@ -13,5 +13,16 @@ declare module 'styled-components' {
       white: string;
 
     };
+
+    fonts: {
+     
+      thin: string;
+      light: string;
+      regular: string;
+      medium: string;
+      bold: string;
+      black: string;
+  
+    };
   }
 }
