@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Alert, ScrollView, View } from 'react-native';
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { IUser } from '../../../store/reducers/user';
+import AccountBanner from './components/AccountBanner';
 import BottomBanner from './components/BottomBanner';
 import CardBanner from './components/CardBanner';
 import Header from './components/Header';
@@ -33,6 +34,58 @@ const DATA: IBoxBottomBanner[] = [
   }
 ]
 
+
+export interface IBoxCategories {
+
+    IconName: any
+    IconInternalBox?: string 
+    IconText: string
+
+
+}
+
+const CategoriesData: IBoxCategories[] = [
+
+  {
+    IconName: 'bank-transfer-in',
+    IconText: 'Pix',
+  },
+  {
+    IconName: 'barcode',
+    IconText: 'Pagar',
+  },
+  {
+    IconName: 'cash-refund',
+    IconText: 'Transferir',
+  },
+  {
+    IconName: 'cash-plus',
+    IconText: 'Depositar',
+  },
+  {
+    IconName: 'cellphone-iphone',
+    IconText: 'Recarga de celular',
+  },
+  {
+    IconName: 'cash-usd',
+    IconText: 'Cobrar',
+  },
+  {
+    IconName: 'heart-outline',
+    IconText: 'Doação',
+  },
+  {
+    IconName: 'web',
+    IconText: 'Trasferir Internac.',
+  },
+  {
+    IconName: 'help-circle-outline',
+    IconInternalBox: 'Dica',
+    IconText: 'Encontrar atalhos',
+  },
+]
+
+
 const Home: React.FC = () => {
 
 
@@ -48,6 +101,19 @@ const Home: React.FC = () => {
     <ScrollView>
     <Container>
     <Header name={user.data.email} isBlur={blur} setBlur={()=>setBlur(!blur)}/>
+
+    <Box>
+      <AccountBanner
+
+      heading={'Conta'} 
+      subHeading={'Limite disponivel de R$ 1000,00'}
+      bottomBannerData={DATA}
+      categorieIcon={'credit-card-outline'}
+      categorieText={'rgrho'}
+      categoriesData={CategoriesData}
+      
+      />
+    </Box>
 
     <Box>
       <CardBanner
