@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
-import { FlatList, View } from 'react-native';
+import { Alert, FlatList, TouchableOpacity, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
 import { Balance, Box, BoxCategories, Button, ButtonMyCards, CategoriesText, CategorieView, Container, Heading, HorizontalView, IconInternalBox, IconInternalBoxText, Invoice, SubHeading, Text } from './styles';
 import { ThemeContext } from 'styled-components/native';
 import { IBoxCategories } from '../..';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 interface IPromoteBannerProps {
     categoriesData: IBoxCategories[]
@@ -25,11 +26,17 @@ const AccountBanner: React.FC<IPromoteBannerProps> = ({heading,categoriesData, b
   return( 
   
        <Container>
+       <TouchableOpacity>
        <HorizontalView>
        <Heading>{heading}</Heading>
-       <MaterialCommunityIcons name="chevron-right" size={24} color={theme.colors.primary} />
+       <MaterialCommunityIcons 
+       name="chevron-right" 
+       size={24} 
+       color={theme.colors.textNegative}
+       />
        </HorizontalView>
        <Balance>R$ 17,74</Balance>
+       </TouchableOpacity>
        <FlatList
           
           data={categoriesData}
@@ -40,7 +47,7 @@ const AccountBanner: React.FC<IPromoteBannerProps> = ({heading,categoriesData, b
 
             return <BoxCategories>
               <CategorieView>
-              <MaterialCommunityIcons name={item.IconName} size={24} color='black' />
+              <MaterialCommunityIcons name={item.IconName} size={24} color={theme.colors.textNegative} />
               {item.IconInternalBox && <IconInternalBox>
                 <IconInternalBoxText>{item.IconInternalBox}</IconInternalBoxText>
                 </IconInternalBox>
@@ -53,7 +60,10 @@ const AccountBanner: React.FC<IPromoteBannerProps> = ({heading,categoriesData, b
         
         />
        <ButtonMyCards>
-          <Text>Meus Cartões</Text>
+          <MaterialCommunityIcons name="cellphone-iphone" size={24} color={theme.colors.textNegative}s />
+          <Text
+          style={{marginLeft: RFValue(6)}}
+          >Meus Cartões</Text>
        </ButtonMyCards>
        <FlatList
           

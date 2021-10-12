@@ -6,7 +6,7 @@ export const Container = styled.View`
   flex-direction: column;
 `;
 
-export const HorizontalView = styled.TouchableOpacity`
+export const HorizontalView = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -16,28 +16,27 @@ export const HorizontalView = styled.TouchableOpacity`
 
 
 export const Heading = styled.Text`
-  color: #000000;
-  font-family:  ${({theme})=> theme.fonts.medium};
+  color: ${({theme})=> theme.colors.textNegative};
+  font-family:  ${({theme})=> theme.fonts.regular};
   font-size: ${RFValue(16)}px;
-  font-weight: 100;
 `;
 
 export const SubHeading = styled.Text`
-  color: #000000;
+  color: ${({theme})=> theme.colors.textNegative};
   font-family:  ${({theme})=> theme.fonts.regular};
   font-size: ${RFValue(12)}px;
   font-weight: 100;
 `;
 
 export const Invoice = styled.Text`
-  color: #000000;
+  color: ${({theme})=> theme.colors.textNegative};
   font-family:  ${({theme})=> theme.fonts.medium};
   font-size: ${RFValue(12)}px;
   font-weight: 100;
 `;
 
 export const Balance = styled.Text`
-  color: #000000;
+  color: ${({theme})=> theme.colors.textNegative};
   font-family:  ${({theme})=> theme.fonts.medium};
   font-size: ${RFValue(24)}px;
   font-weight: 100;
@@ -45,19 +44,19 @@ export const Balance = styled.Text`
 export const ButtonMyCards = styled.TouchableOpacity`
   width: 100%;
   height: ${RFValue(55)}px;
-  background-color: ${({theme})=> theme.colors.gray};
-  justify-content: space-between;
+  flex-direction: row;
+  background-color: ${({theme})=> theme.colors.box};
   padding: ${RFValue(16)}px ${RFValue(18)}px;
   margin-top: ${RFValue(18)}px;
   margin-bottom: ${RFValue(18)}px;
   border-radius: ${RFValue(10)}px;
-  align-self: center;
+  align-items: center;
 `;
 
 export const Box = styled.TouchableOpacity`
   width: ${RFValue(220)}px;
   height: ${RFValue(65)}px;
-  background-color: ${({theme})=> theme.colors.gray};
+  background-color: ${({theme})=> theme.colors.box};
   justify-content: space-between;
   padding: ${RFValue(16)}px ${RFValue(18)}px;
   margin-right: ${RFValue(20)}px;
@@ -75,7 +74,7 @@ export const Button = styled.View`
 `;
 
 export const Text = styled.Text`
-  color: #000000;
+  color: ${({theme})=> theme.colors.textNegative};
   font-family:  ${({theme})=> theme.fonts.regular};
   font-size: ${RFValue(11)}px;
 `;
@@ -93,9 +92,9 @@ export const BoxCategories = styled.TouchableOpacity`
 `;
 
 export const CategorieView = styled.View`
-  width: ${RFValue(65)}px;
-  height: ${RFValue(65)}px;
-  background-color: ${({theme})=> theme.colors.gray};
+  width: ${RFValue(60)}px;
+  height: ${RFValue(60)}px;
+  background-color: ${({theme})=> theme.colors.box};
   justify-content: space-between;
   border-radius: ${RFValue(35)}px;
   align-items: center;
@@ -103,7 +102,7 @@ export const CategorieView = styled.View`
 `;
 
 export const CategoriesText = styled.Text`
-  color: #000000;
+  color: ${({theme})=> theme.colors.textNegative};
   font-family:  ${({theme})=> theme.fonts.medium};
   font-size: ${RFValue(11)}px;
   text-align: center;

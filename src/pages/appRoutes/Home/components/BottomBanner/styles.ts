@@ -15,14 +15,14 @@ export const HorizontalView = styled.View`
 `;
 
 export const Heading = styled.Text`
-  color: #000000;
+  color: ${({theme})=> theme.colors.textNegative};
   font-family:  ${({theme})=> theme.fonts.medium};
   font-size: ${RFValue(16)}px;
 
 `;
 
 export const SubHeading = styled.Text`
-  color: #000000;
+  color: ${({theme})=> theme.colors.textNegative};
   font-family:  ${({theme})=> theme.fonts.regular};
   font-size: ${RFValue(12)}px;
 `;
@@ -37,7 +37,7 @@ export const Text = styled.Text`
 export const Box = styled.TouchableOpacity`
   width: ${RFValue(220)}px;
   height: ${RFValue(160)}px;
-  background-color: ${({theme})=> theme.colors.gray};
+  background-color: ${({theme})=> theme.colors.box};
   justify-content: space-between;
   padding: ${RFValue(16)}px ${RFValue(18)}px;
   margin-right: ${RFValue(20)}px;

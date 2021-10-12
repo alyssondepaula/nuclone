@@ -25,7 +25,7 @@ const CardBanner: React.FC<IPromoteBannerProps> = ({iconName,heading,subHeading}
        <MaterialCommunityIcons name={iconName} size={24} color="black" />
        <HorizontalView>
        <Heading>{heading}</Heading>
-       <MaterialCommunityIcons name="chevron-right" size={24} color={theme.colors.primary} />
+       <MaterialCommunityIcons name="chevron-right" size={24} color={theme.colors.textNegative} />
        </HorizontalView>
        <Invoice>Fatura Atual</Invoice>
        <Balance>R$ 17,74</Balance>
