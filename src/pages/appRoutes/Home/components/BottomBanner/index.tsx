@@ -1,19 +1,21 @@
 import React, { useContext } from 'react';
-import { View } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
-import { Container, Heading, HorizontalView, SubHeading } from './styles';
+import { Box, Button, Container, Heading, HorizontalView, SubHeading, Text } from './styles';
 import { ThemeContext } from 'styled-components/native';
+import { IBoxBottomBanner } from '../..';
 
 interface IPromoteBannerProps {
-    iconName: any
     heading: string
-    subHeading: string
+    bottomBannerData: IBoxBottomBanner[]
 
 }
 
-const BottomBanner: React.FC<IPromoteBannerProps> = ({iconName,heading,subHeading}) => {
+
+
+const BottomBanner: React.FC<IPromoteBannerProps> = ({heading,bottomBannerData}) => {
 
 
   const theme = useContext(ThemeContext);  
@@ -22,12 +24,28 @@ const BottomBanner: React.FC<IPromoteBannerProps> = ({iconName,heading,subHeadin
   return( 
   
        <Container>
-       <MaterialCommunityIcons name={iconName} size={24} color="black" />
        <HorizontalView>
        <Heading>{heading}</Heading>
-       <MaterialCommunityIcons name="chevron-right" size={24} color={theme.colors.primary} />
        </HorizontalView>
-       <SubHeading>{subHeading}</SubHeading>
+       <FlatList
+          
+          data={bottomBannerData}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(item, index)=> item.heading+index}
+          renderItem={({item})=>{
+
+            return <Box>
+              <View>
+              <Heading>{item.heading}</Heading>
+              <SubHeading>{item.subheading}</SubHeading>
+              </View>
+              <Button><Text>{item.buttonText}</Text></Button>
+            </Box>
+
+          }}
+        
+        />
        </Container>
   
   );

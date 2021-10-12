@@ -12,7 +12,7 @@ export const Container = styled.View`
    background-color: ${({theme})=> theme.colors.gray};
 `;
 
-export const Box = styled.TouchableOpacity`
+export const Box = styled.View`
    margin-top: ${RFValue(4)}px;
    background-color: ${({theme})=> theme.colors.white};
    padding: ${RFValue(16)}px ${RFValue(18)}px;

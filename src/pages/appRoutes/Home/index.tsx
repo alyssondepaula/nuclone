@@ -2,10 +2,35 @@ import React, { useState } from 'react';
 import { Alert, View } from 'react-native';
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { IUser } from '../../../store/reducers/user';
+import BottomBanner from './components/BottomBanner';
 import Header from './components/Header';
 import PromoteBanner from './components/PromoteBanner';
 
 import { Box, Container, StatusBar } from './styles';
+
+
+export interface IBoxBottomBanner {
+
+  heading: string;
+  subheading: string;
+  buttonText: string;
+
+
+}
+
+const DATA: IBoxBottomBanner[] = [
+
+  {
+    heading: 'Indique seus Amigos',
+    subheading: 'Mostre aos seus amigos como é fácil ter uma vida sem burocracia.',
+    buttonText: 'Indicar Amigos'
+  },
+  {
+    heading: 'Whatsapp',
+    subheading: 'Pagamentos seguros, rápidos e sem tarifa. A experiência Nubank sem nem sair da ...',
+    buttonText: 'Quero Conhecer'
+  }
+]
 
 const Home: React.FC = () => {
 
@@ -37,6 +62,11 @@ const Home: React.FC = () => {
     </Box>
 
     <Box>
+
+    <BottomBanner
+      
+      heading={'Descubra Mais'} 
+      bottomBannerData={DATA} />
      
     </Box>
    
