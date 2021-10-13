@@ -34,7 +34,7 @@ const AccountBanner: React.FC<IPromoteBannerProps> = ({heading,categoriesData, A
        color={theme.colors.textNegative}
        />
        </HorizontalView>
-       <AppBlurView intensity={!isBlur ? 0 : 10} tint="dark">
+       <AppBlurView intensity={!isBlur ? 0 : 15} tint={theme.isDark ? "light" :"dark"}>
        <Balance>{!isBlur && `R$ ${invoice}`}</Balance>
        </AppBlurView>
        </TouchableOpacity>

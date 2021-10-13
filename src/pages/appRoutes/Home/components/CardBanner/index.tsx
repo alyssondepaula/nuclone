@@ -25,13 +25,13 @@ const CardBanner: React.FC<IPromoteBannerProps> = ({iconName,heading,invoice,sub
   return( 
   
        <Container>
-       <MaterialCommunityIcons name={iconName} size={24} color="black" />
+       <MaterialCommunityIcons name={iconName} size={24} color={theme.colors.textNegative} />
        <HorizontalView>
        <Heading>{heading}</Heading>
        <MaterialCommunityIcons name="chevron-right" size={24} color={theme.colors.textNegative} />
        </HorizontalView>
        <Invoice>Fatura Atual</Invoice>
-       <AppBlurView intensity={!isBlur ? 0 : 10} tint="dark">
+       <AppBlurView intensity={!isBlur ? 0 : 15} tint="dark">
        <Balance>{!isBlur && `R$ ${invoice}`}</Balance>
        </AppBlurView>
        <SubHeading>{subHeading}</SubHeading>

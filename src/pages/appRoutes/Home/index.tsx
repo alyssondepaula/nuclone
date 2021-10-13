@@ -111,7 +111,7 @@ const Home: React.FC = () => {
 
 
   const user: IUser = useAppSelector(state=> state.user)
-  const isBlur = user.preferences.isBlur
+  const isBlur = user.isBlur
 
 
   const dispatch = useAppDispatch();

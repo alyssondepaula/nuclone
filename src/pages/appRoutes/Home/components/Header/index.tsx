@@ -4,6 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { Avatar, AvatarView, Container, HorizontalView, Text } from './styles';
 import { ThemeContext } from 'styled-components/native';
+import { useAppDispatch } from '../../../../../hooks/useAppDispatch';
 
 
 interface IHeaderProps {
@@ -17,12 +18,18 @@ const Header: React.FC<IHeaderProps> = ({name,isBlur, setBlur}) => {
 
   const theme = useContext(ThemeContext);
 
+  const dispatch = useAppDispatch();
+
+  const toggleTheme = () => {
+    dispatch({type:'TOGGLE_THEME'});
+  }
+
 
   return( 
   
    <Container>
      <HorizontalView>
-      <AvatarView >
+      <AvatarView onPress={()=>toggleTheme()}>
         <Avatar source={{
           uri: 'https://github.com/alyssondepaula.png',
         }}/>

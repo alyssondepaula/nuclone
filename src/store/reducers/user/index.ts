@@ -1,6 +1,6 @@
 import { AnyAction } from 'redux'
 import { Reducer } from 'redux';
-import { USER_LOGIN, USER_LOGOFF, TOGGLE_BLUR } from "../../actions";
+import { USER_LOGIN, USER_LOGOFF, TOGGLE_BLUR, TOGGLE_THEME } from "../../actions";
 
 
 export type IUser = {
@@ -11,9 +11,8 @@ export type IUser = {
       invoice: string
     },
     loading: boolean,
-    preferences: {
-      isBlur: boolean
-   }
+    isBlur: boolean
+    isDark: boolean
 }
 
 
@@ -25,9 +24,9 @@ const initialState = {
     invoice: '10,00',
     },
     loading: true,
-    preferences: {
-      isBlur: true
-   }
+    isBlur: true,
+    isDark: false
+   
 };
 
 export const userReducer: Reducer<any, AnyAction> = (state: IUser | undefined = initialState, action: AnyAction) => {
@@ -42,14 +41,19 @@ export const userReducer: Reducer<any, AnyAction> = (state: IUser | undefined = 
           invoice: '10,00',
           },
           loading: true,
-          preferences: {
-            isBlur: true
-         }};
+          isBlur: true,
+          isDark: false
+         
+        };
+
     case USER_LOGOFF:  
     return { ...state, data: {} };
 
     case TOGGLE_BLUR:  
-    return { ...state, preferences: { isBlur: !state.preferences.isBlur } };
+    return { ...state, isBlur: !state.isBlur };
+
+    case TOGGLE_THEME:  
+    return { ...state, isDark: !state.isDark  };
 
     default:
       return state;

@@ -1,4 +1,4 @@
-import { USER_LOGIN, USER_LOGOFF, TOGGLE_BLUR } from "../";
+import { USER_LOGIN, USER_LOGOFF, TOGGLE_BLUR, TOGGLE_THEME } from "../";
 
 export const userLogin = (email: string, password: number) => ({
   type: USER_LOGIN,
@@ -14,5 +14,11 @@ export const userLogOff = () => {
 export const toggleBlur = () => {
   return {
     type: TOGGLE_BLUR
+  };
+};
+
+export const toggleTheme = () => {
+  return {
+    type: TOGGLE_THEME
   };
 };

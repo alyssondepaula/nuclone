@@ -1,8 +1,6 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components/native';
 import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes';
-import themes from './src/styles/themes';
 import { Provider } from 'react-redux';
 import store from './src/store';
 import { useFonts, 
@@ -14,6 +12,7 @@ import { useFonts,
          Roboto_900Black
        } from '@expo-google-fonts/roboto';
 import AppLoading from 'expo-app-loading';
+import ThemeCustomProvider from './src/Providers/themeProvider';
 
 export default function App() {
 
@@ -32,11 +31,11 @@ export default function App() {
   return (
     
     <Provider store={store}>
-     <ThemeProvider theme={themes.nuTheme}>
+     <ThemeCustomProvider>
         <NavigationContainer>
           <Routes/>
         </NavigationContainer>
-     </ThemeProvider>
+     </ThemeCustomProvider>
      </Provider>
 
   );
