@@ -12,6 +12,7 @@ declare module 'styled-components' {
       box: string;
       text: string;
       textNegative: string;
+      textAlternative: string;
 
     };
 

@@ -8,7 +8,8 @@ const nuTheme: DefaultTheme = {
       primaryPastel: '#9B3BDA',
       box: '#F0F1F5',
       text: '#FFFFFF',
-      textNegative: '#000000'
+      textNegative: '#000000',
+      textAlternative: '#737581'
 
   },
   fonts: {
