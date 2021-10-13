@@ -1,3 +1,4 @@
+import { BlurView } from 'expo-blur';
 import { RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
 
@@ -37,7 +38,7 @@ export const Invoice = styled.Text`
 
 export const Balance = styled.Text`
   color: ${({theme})=> theme.colors.textNegative};
-  font-family:  ${({theme})=> theme.fonts.medium};
+  font-family:  ${({theme})=> theme.fonts.bold};
   font-size: ${RFValue(24)}px;
   font-weight: 100;
 `;
@@ -76,7 +77,7 @@ export const Button = styled.View`
 export const Text = styled.Text`
   color: ${({theme})=> theme.colors.textNegative};
   font-family:  ${({theme})=> theme.fonts.regular};
-  font-size: ${RFValue(11)}px;
+  font-size: ${RFValue(10)}px;
 `;
 
 
@@ -124,4 +125,8 @@ export const IconInternalBoxText = styled.Text`
   font-family:  ${({theme})=> theme.fonts.bold};
   font-size: ${RFValue(11)}px;
   text-align: center;
+`;
+
+export const AppBlurView = styled(BlurView)`
+    flex: 1;
 `;

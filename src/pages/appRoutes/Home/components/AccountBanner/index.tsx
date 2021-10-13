@@ -3,21 +3,20 @@ import { Alert, FlatList, TouchableOpacity, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
-import { Balance, Box, BoxCategories, Button, ButtonMyCards, CategoriesText, CategorieView, Container, Heading, HorizontalView, IconInternalBox, IconInternalBoxText, Invoice, SubHeading, Text } from './styles';
+import { AppBlurView, Balance, Box, BoxCategories, Button, ButtonMyCards, CategoriesText, CategorieView, Container, Heading, HorizontalView, IconInternalBox, IconInternalBoxText, Invoice, SubHeading, Text } from './styles';
 import { ThemeContext } from 'styled-components/native';
-import { IBoxCategories } from '../..';
+import { IAccountBottomBanner, IBoxCategories } from '../..';
 import { RFValue } from 'react-native-responsive-fontsize';
 
 interface IPromoteBannerProps {
     categoriesData: IBoxCategories[]
-    bottomBannerData: any
-    categorieIcon: any
-    categorieText: string
+    AccountBottomBannerData: IAccountBottomBanner[]
     heading: string
-    subHeading: string
+    invoice: string
+    isBlur: boolean
 }
 
-const AccountBanner: React.FC<IPromoteBannerProps> = ({heading,categoriesData, bottomBannerData, categorieIcon, categorieText}) => {
+const AccountBanner: React.FC<IPromoteBannerProps> = ({heading,categoriesData, AccountBottomBannerData, invoice, isBlur}) => {
 
 
   const theme = useContext(ThemeContext);  
@@ -35,7 +34,9 @@ const AccountBanner: React.FC<IPromoteBannerProps> = ({heading,categoriesData, b
        color={theme.colors.textNegative}
        />
        </HorizontalView>
-       <Balance>R$ 17,74</Balance>
+       <AppBlurView intensity={!isBlur ? 0 : 10} tint="dark">
+       <Balance>{!isBlur && `R$ ${invoice}`}</Balance>
+       </AppBlurView>
        </TouchableOpacity>
        <FlatList
           
@@ -67,14 +68,14 @@ const AccountBanner: React.FC<IPromoteBannerProps> = ({heading,categoriesData, b
        </ButtonMyCards>
        <FlatList
           
-          data={bottomBannerData}
+          data={AccountBottomBannerData}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
-          keyExtractor={(item, index)=> item.heading+index}
+          keyExtractor={(item, index)=> item.text+index}
           renderItem={({item})=>{
 
             return <Box>
-              <Text>{item.buttonText}</Text>
+              <Text>{item.text}  <Text style={{color: theme.colors.primary}}>{item.textHigh}</Text></Text>
             </Box>
 
           }}

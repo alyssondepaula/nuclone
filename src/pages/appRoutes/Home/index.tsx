@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Alert, ScrollView, View } from 'react-native';
+import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { useAppSelector } from '../../../hooks/useAppSelector';
 import { IUser } from '../../../store/reducers/user';
 import AccountBanner from './components/AccountBanner';
@@ -85,13 +86,39 @@ const CategoriesData: IBoxCategories[] = [
   },
 ]
 
+export interface IAccountBottomBanner {
+
+  text: string;
+  textHigh: string;
+
+
+}
+
+const AccountBottomBanner: IAccountBottomBanner[] = [
+
+  {
+    text: 'Vamos Reiventar o jeito de investir.',
+    textHigh: 'Cadastre-se e não fique...',
+  },
+  {
+    text: 'Salve seus amigos da burocracia.',
+    textHigh: 'Faça um convite...',
+  }
+]
+
 
 const Home: React.FC = () => {
 
 
-  const [blur,setBlur] = useState<boolean>(false)
-
   const user: IUser = useAppSelector(state=> state.user)
+  const isBlur = user.preferences.isBlur
+
+
+  const dispatch = useAppDispatch();
+
+  const handleBlur = () => {
+    dispatch({type:'TOGGLE_BLUR'});
+  }
 
 
   return ( 
@@ -100,16 +127,15 @@ const Home: React.FC = () => {
     <StatusBar/>
     <ScrollView>
     <Container>
-    <Header name={user.data.email} isBlur={blur} setBlur={()=>setBlur(!blur)}/>
+    <Header name={user.data.userName} isBlur={isBlur} setBlur={()=>handleBlur()}/>
 
     <Box>
       <AccountBanner
 
       heading={'Conta'} 
-      subHeading={'Limite disponivel de R$ 1000,00'}
-      bottomBannerData={DATA}
-      categorieIcon={'credit-card-outline'}
-      categorieText={'rgrho'}
+      invoice={`${user.data.invoice}`}
+      AccountBottomBannerData={AccountBottomBanner}
+      isBlur={isBlur}
       categoriesData={CategoriesData}
       
       />
@@ -118,8 +144,10 @@ const Home: React.FC = () => {
     <Box>
       <CardBanner
       iconName={'credit-card-outline'}
-      heading={'Cartão Bloqueado'} 
-      subHeading={'Limite disponivel de R$ 1000,00'}/>
+      heading={'Cartão de Crédito'} 
+      invoice={`${user.data.invoice}`}
+      isBlur={isBlur}
+      subHeading={`Limite disponivel de R$ ${user.data.cardLimit}`}/>
     </Box>
 
     <Box>

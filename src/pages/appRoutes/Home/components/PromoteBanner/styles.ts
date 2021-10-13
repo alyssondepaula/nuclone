@@ -23,7 +23,7 @@ export const Heading = styled.Text`
 `;
 
 export const SubHeading = styled.Text`
-  color: ${({theme})=> theme.colors.textNegative};
+  color: ${({theme})=> theme.colors.textAlternative};
   font-family:  ${({theme})=> theme.fonts.regular};
   font-size: ${RFValue(12)}px;
   font-weight: 100;
