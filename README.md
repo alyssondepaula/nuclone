@@ -6,6 +6,10 @@
   Nubank Clone App with React Native and Redux.
 </h4>
 
+## :rocket: DEMO ON SNACK
+
+- => (https://snack.expo.dev/@alysson.depaula2020/4e330e)
+
 <p align="center">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/alyssondepaula/nuclone.svg">
 
